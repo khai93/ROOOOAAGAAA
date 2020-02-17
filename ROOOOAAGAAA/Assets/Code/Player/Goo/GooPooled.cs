@@ -31,9 +31,11 @@ public class GooPooled : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("Hit");
+
         if (collision.CompareTag(enemyTag))
         {
-            // Debug.Log("Hit");
+           
 
             ITakeDamage _takeDamage = collision.GetComponent<ITakeDamage>();
 

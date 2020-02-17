@@ -3,10 +3,8 @@ using System.Collections;
 
 public class AnimationAutoDestroy : MonoBehaviour
 {
-    public float delay = 0f;
-
-    void Start()
+    void Awake()
     {
-        Destroy(gameObject, this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length + delay);
+        Destroy(gameObject, this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
     }
 }

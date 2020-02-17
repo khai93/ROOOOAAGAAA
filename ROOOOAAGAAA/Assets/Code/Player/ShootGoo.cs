@@ -36,7 +36,6 @@ public class ShootGoo : MonoBehaviour
             // If Player is flipped then flip firepoint position
 
             Vector3 flippedFirepoint = FirePoint.position - new Vector3(0.59f * 2, 0);
-            Debug.Log(flippedFirepoint);
             GooInstance.transform.position = (spr.flipX ? flippedFirepoint : FirePoint.position);
 
             GooInstance.gameObject.SetActive(true);

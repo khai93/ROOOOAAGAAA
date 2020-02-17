@@ -14,14 +14,11 @@ public class FlyTowardsTarget : MonoBehaviour, ITarget<Transform>
         _target = target;
     }
 
-    // Update is called once per frame
     private void Update()
     {
         if (_target is Transform)
         {
-            transform.position = Vector2.MoveTowards(transform.position, _target.position, speed);
+            transform.position = Vector2.MoveTowards(transform.position, _target.position, speed * Time.deltaTime);
         }
     }
-
-   
 }

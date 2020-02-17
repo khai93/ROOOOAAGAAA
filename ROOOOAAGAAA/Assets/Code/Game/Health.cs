@@ -10,6 +10,9 @@ public class Health : MonoBehaviour, ITakeDamage
     [SerializeField]
     private float HealthRegenRate;
 
+    [SerializeField]
+    private GameObject DeathEffectPrefab;
+
     private float HealthRegenCD;
     private float _health;
 
@@ -25,20 +28,35 @@ public class Health : MonoBehaviour, ITakeDamage
 
     private void Update()
     {
+        // Death Check
         if (_health <= 0)
         {
             Die();
         }
 
-        if (Time.time >= HealthRegenCD)
+
+        // Health Regen
+        if (Time.time >= HealthRegenCD && _health < MaxHealth)
         {
             _health += 1;
             HealthRegenCD = Time.time + HealthRegenRate;
+        }
+
+        // Safety Check
+        if (_health > MaxHealth)
+        {
+            _health = MaxHealth;
         }
     }
 
     private void Die()
     {
         gameObject.SetActive(false);
+
+        if (DeathEffectPrefab != null)
+        {
+            var effect = Instantiate(DeathEffectPrefab);
+            effect.transform.position = transform.position;
+        }
     }
 }
