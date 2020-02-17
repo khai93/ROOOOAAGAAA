@@ -121,6 +121,54 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &88363912
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 88363913}
+  - component: {fileID: 88363914}
+  m_Layer: 0
+  m_Name: Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &88363913
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 88363912}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 726204862}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &88363914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 88363912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9194d1765a781484c9e3976b02879f96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player1: {fileID: 2145235552}
+  Player2: {fileID: 627006655}
+  EnemyPrefab: {fileID: 7792481957546983214, guid: 0037bf37d70a7b84dbd27268f6c23ac7,
+    type: 3}
+  SpawnRate: 5
 --- !u!1 &137818932
 GameObject:
   m_ObjectHideFlags: 0
@@ -631,6 +679,7 @@ GameObject:
   - component: {fileID: 627006657}
   - component: {fileID: 627006658}
   - component: {fileID: 627006659}
+  - component: {fileID: 627006660}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Player
@@ -819,6 +868,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FirePoint: {fileID: 1589543501}
   ShootKey: 257
+  Damage: 10
+  cooldown: 0.2
+--- !u!114 &627006660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 627006651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b144deeb64842b24d8243f9c2f8f1c70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHealth: 200
+  HealthRegenRate: 1.5
+  DeathEffectPrefab: {fileID: 0}
 --- !u!1 &699088332
 GameObject:
   m_ObjectHideFlags: 0
@@ -930,6 +996,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1424964254}
+  - {fileID: 88363913}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -987,7 +1054,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1460096443}
   m_Layer: 0
-  m_Name: FirePoint
+  m_Name: FirePoint1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1001,7 +1068,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1460096442}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.59, y: -0.27, z: 0}
+  m_LocalPosition: {x: 0.59, y: -0.18, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2145235552}
@@ -1017,7 +1084,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1589543501}
   m_Layer: 0
-  m_Name: FirePoint
+  m_Name: FirePoint2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1031,7 +1098,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1589543500}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.57, y: -0.31, z: 0}
+  m_LocalPosition: {x: 0.59, y: -0.21, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 627006655}
@@ -1113,6 +1180,7 @@ GameObject:
   - component: {fileID: 2145235554}
   - component: {fileID: 2145235555}
   - component: {fileID: 2145235556}
+  - component: {fileID: 2145235557}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Player
@@ -1301,3 +1369,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FirePoint: {fileID: 1460096443}
   ShootKey: 102
+  Damage: 10
+  cooldown: 0.2
+--- !u!114 &2145235557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2145235548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b144deeb64842b24d8243f9c2f8f1c70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHealth: 200
+  HealthRegenRate: 1.5
+  DeathEffectPrefab: {fileID: 0}
