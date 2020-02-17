@@ -3,7 +3,7 @@ using System.Collections;
 
 public class AnimationAutoDestroy : MonoBehaviour
 {
-    void Awake()
+    private void Awake()
     {
         Destroy(gameObject, this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
     }
