@@ -5,15 +5,15 @@ using UnityEngine;
 public class Players : MonoBehaviour
 {
 
-    public static Players instance;
+    public static Players Instance;
 
-    public static List<Transform> list;
+    public List<Transform> list;
 
     private void Awake()
     {
-        if (instance == null)
+        if (Instance == null)
         {
-            instance = this;
+            Instance = this;
 
             foreach (Transform ply in transform)
             {
