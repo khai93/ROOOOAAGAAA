@@ -1,2 +1,2 @@
 # ROOOOAAGAAA
- single player co-op game for game jam
+ single player co-op game about fighting lots of bosses
