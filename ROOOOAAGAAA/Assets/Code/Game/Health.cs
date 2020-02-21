@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Health : MonoBehaviour, ITakeDamage
 {
-    [SerializeField]
-    private float MaxHealth;
+    public float MaxHealth;
 
     [SerializeField]
     private float HealthRegenRate;
@@ -47,6 +46,16 @@ public class Health : MonoBehaviour, ITakeDamage
         {
             _health = MaxHealth;
         }
+    }
+
+    public float GetCurrentHealth()
+    {
+        return _health;
+    }
+
+    public void SetHealthPercentage(float percentage)
+    {
+        _health = MaxHealth * (percentage/100);
     }
 
     private void Die()
