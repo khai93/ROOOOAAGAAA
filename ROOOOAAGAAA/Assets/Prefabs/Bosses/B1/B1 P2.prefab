@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 363486712736966496}
   - component: {fileID: 7030500816153177327}
   - component: {fileID: 7267187038514691591}
+  - component: {fileID: 1062655178640136081}
   m_Layer: 0
   m_Name: B1 P2
   m_TagString: Enemy
@@ -31,8 +32,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7894436261087316456}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.3, y: 2.908, z: 0}
-  m_LocalScale: {x: 3.8887668, y: 3.8887668, z: 3.8887668}
+  m_LocalPosition: {x: 0.717, y: 2.491, z: 0}
+  m_LocalScale: {x: 6.0487337, y: 5.533263, z: 4.720963}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -78,7 +79,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 3302389843610930800, guid: 520dd899660a9814fa49dac5eb247434,
     type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9245283, g: 0.7195621, b: 0.7195621, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -173,7 +174,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyPrefab: {fileID: 7792481957546983214, guid: 0037bf37d70a7b84dbd27268f6c23ac7,
     type: 3}
-  SpawnRate: 1
+  SpawnRate: 3
   yOffset: 10
 --- !u!114 &7267187038514691591
 MonoBehaviour:
@@ -187,7 +188,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b144deeb64842b24d8243f9c2f8f1c70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 1000
-  HealthRegenRate: 2
+  MaxHealth: 500
+  HealthRegenRate: 5
   DeathEffectPrefab: {fileID: 0}
   flashRedWhenHit: 1
+--- !u!114 &1062655178640136081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7894436261087316456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50a65a22af65b264f98a8f6eaaa5066c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EffectPrefab: {fileID: 6017331305384838063, guid: 42f2edacc3657ab46869b7ff10d22c54,
+    type: 3}
+  SpawnRateInSeconds: 3

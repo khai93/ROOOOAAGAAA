@@ -17,6 +17,7 @@ public class Health : MonoBehaviour, ITakeDamage
 
     private float HealthRegenCD;
     private float _health;
+    private float baseRed;
     private Renderer _renderer;
 
     public void TakeDamage(float damage)
@@ -25,7 +26,7 @@ public class Health : MonoBehaviour, ITakeDamage
 
         if (flashRedWhenHit)
         {
-            _renderer.material.color = new Color(2f, _renderer.material.color.g, _renderer.material.color.b, _renderer.material.color.a);
+            _renderer.material.color = new Color(baseRed+1f, _renderer.material.color.g, _renderer.material.color.b, _renderer.material.color.a);
         }
     }
 
@@ -33,6 +34,7 @@ public class Health : MonoBehaviour, ITakeDamage
     {
         _health = MaxHealth;
         _renderer = GetComponent<Renderer>();
+        baseRed = _renderer.material.color.r;
     }
 
     private void Update()
@@ -58,12 +60,12 @@ public class Health : MonoBehaviour, ITakeDamage
         }
 
         // Flash red
-        if (_renderer.material.color.r > 1f)
+        if (_renderer.material.color.r > baseRed)
         {
             _renderer.material.color = new Color(_renderer.material.color.r - 2f * Time.deltaTime, _renderer.material.color.g, _renderer.material.color.b, _renderer.material.color.a);
         } else
         {
-            _renderer.material.color = new Color(1f , _renderer.material.color.g, _renderer.material.color.b, _renderer.material.color.a);
+            _renderer.material.color = new Color(baseRed , _renderer.material.color.g, _renderer.material.color.b, _renderer.material.color.a);
         }
 
     }
