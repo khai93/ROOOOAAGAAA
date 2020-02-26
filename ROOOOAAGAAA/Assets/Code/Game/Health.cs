@@ -26,7 +26,7 @@ public class Health : MonoBehaviour, ITakeDamage
 
         if (flashRedWhenHit)
         {
-            _renderer.material.color = new Color(baseRed+1f, _renderer.material.color.g, _renderer.material.color.b, _renderer.material.color.a);
+            _renderer.material.color = new Color(baseRed+1f, _renderer.material.color.g, _renderer.material.color.b);
         }
     }
 
@@ -79,8 +79,6 @@ public class Health : MonoBehaviour, ITakeDamage
     {
         _health = MaxHealth * (percentage/100);
     }
-
-    
 
     private void Die()
     {

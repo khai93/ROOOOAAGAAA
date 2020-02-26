@@ -14,7 +14,7 @@ public class CameraShake : MonoBehaviour
     public void Shake(float _shakeAmount, float duration)
     {
         shakeAmount = _shakeAmount;
-        InvokeRepeating("CameraShake", 0, .01f);
+        InvokeRepeating("cameraShake", 0, .01f);
         Invoke("StopShaking", duration);
     }
 
@@ -31,7 +31,7 @@ public class CameraShake : MonoBehaviour
 
     private void StopShaking()
     {
-        CancelInvoke("CameraShake");
+        CancelInvoke("cameraShake");
         transform.position = originialPosition;
     }
 }

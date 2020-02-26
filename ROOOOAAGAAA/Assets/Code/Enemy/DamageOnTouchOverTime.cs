@@ -15,10 +15,17 @@ public class DamageOnTouchOverTime : MonoBehaviour
 
     private float nextCD;
 
+    private void Update()
+    {
+        
+    }
+
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.CompareTag(TargetTag) && Time.time > nextCD)
+        
+        if (collision.CompareTag(TargetTag) && Time.time >= nextCD)
         {
+            Debug.Log(collision.tag);
             Health health = collision.GetComponent<Health>();
 
             if (health != null)
