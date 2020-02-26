@@ -35,7 +35,7 @@ public class SpawnEnemyIntervalTargetClosest : MonoBehaviour
                 {
                     float distance = Vector2.Distance(enemyObject.transform.position, player.position);
 
-                    if (distance < closestDistance)
+                    if (distance < closestDistance && player.gameObject.activeSelf)
                     {
                         closestDistance = distance;
                         closest = player;
