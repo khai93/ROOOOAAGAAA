@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Players : MonoBehaviour
 {
-
     public static Players Instance;
 
     public List<Transform> list;
