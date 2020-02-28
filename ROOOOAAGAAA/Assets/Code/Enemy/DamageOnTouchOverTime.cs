@@ -13,7 +13,7 @@ public class DamageOnTouchOverTime : MonoBehaviour
     [SerializeField]
     private float DelayInSeconds;
 
-    private float nextCD;
+    private float _nextCD;
 
     private void Update()
     {
@@ -23,7 +23,7 @@ public class DamageOnTouchOverTime : MonoBehaviour
     private void OnTriggerStay2D(Collider2D collision)
     {
         
-        if (collision.CompareTag(TargetTag) && Time.time >= nextCD)
+        if (collision.CompareTag(TargetTag) && Time.time >= _nextCD)
         {
             Debug.Log(collision.tag);
             Health health = collision.GetComponent<Health>();
@@ -33,7 +33,7 @@ public class DamageOnTouchOverTime : MonoBehaviour
                 health.TakeDamage(Damage);
             }
 
-            nextCD = Time.time + DelayInSeconds;
+            _nextCD = Time.time + DelayInSeconds;
         }
     }
 }

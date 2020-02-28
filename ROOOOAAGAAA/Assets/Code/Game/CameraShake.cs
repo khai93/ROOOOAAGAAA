@@ -3,26 +3,26 @@ using UnityEngine;
 
 public class CameraShake : MonoBehaviour
 {
-    private Vector3 originialPosition;
-    private float shakeAmount = 0;
+    private Vector3 _originialPosition;
+    private float _shakeAmount = 0;
 
     private void Awake()
     {
-        originialPosition = transform.position;
+        _originialPosition = transform.position;
     }
 
     public void Shake(float _shakeAmount, float duration)
     {
-        shakeAmount = _shakeAmount;
+        this._shakeAmount = _shakeAmount;
         InvokeRepeating("cameraShake", 0, .01f);
         Invoke("StopShaking", duration);
     }
 
     private void cameraShake()
     {
-        if (shakeAmount > 0)
+        if (_shakeAmount > 0)
         {
-            float quakeAmt = Random.value * shakeAmount * 2 - shakeAmount;
+            float quakeAmt = Random.value * _shakeAmount * 2 - _shakeAmount;
             Vector3 pp = transform.position;
             pp.y += quakeAmt; // can also add to x and/or z
             transform.position = pp;
@@ -32,6 +32,6 @@ public class CameraShake : MonoBehaviour
     private void StopShaking()
     {
         CancelInvoke("cameraShake");
-        transform.position = originialPosition;
+        transform.position = _originialPosition;
     }
 }

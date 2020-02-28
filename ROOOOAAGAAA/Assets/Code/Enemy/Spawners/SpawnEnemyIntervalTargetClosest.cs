@@ -15,11 +15,11 @@ public class SpawnEnemyIntervalTargetClosest : MonoBehaviour
     [SerializeField]
     private float yOffset;
 
-    private float SpawnCD;
+    private float _SpawnCD;
 
     private void Update()
     {
-        if (Time.time >= SpawnCD)
+        if (Time.time >= _SpawnCD)
         {
             var enemyObject = Instantiate(EnemyPrefab);
             enemyObject.transform.position = new Vector3(Random.Range(-20, 20), yOffset);
@@ -45,7 +45,7 @@ public class SpawnEnemyIntervalTargetClosest : MonoBehaviour
                 _target.SetTarget(target: closest);
             }
 
-            SpawnCD = Time.time + SpawnRate;
+            _SpawnCD = Time.time + SpawnRate;
         }
     }
 }

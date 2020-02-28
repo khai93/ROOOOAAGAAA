@@ -4,13 +4,13 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 public static class SaveSystem
 {
-    private static readonly string dataPath = Application.persistentDataPath + "/game.data";
+    private static readonly string _dataPath = Application.persistentDataPath + "/game.data";
 
     public static void Save ()
     {
         BinaryFormatter formatter =  new BinaryFormatter();
         
-        using (FileStream stream = new FileStream(dataPath, FileMode.Create))
+        using (FileStream stream = new FileStream(_dataPath, FileMode.Create))
         {
             GameData gameData = new GameData();
 
@@ -20,21 +20,21 @@ public static class SaveSystem
 
     public static GameData LoadGame()
     {
-        if (File.Exists(dataPath))
+        if (File.Exists(_dataPath))
         {
             BinaryFormatter formatter = new BinaryFormatter();
             
-            using (FileStream stream = new FileStream(dataPath, FileMode.Open))
+            using (FileStream stream = new FileStream(_dataPath, FileMode.Open))
             {
                 GameData data = formatter.Deserialize(stream) as GameData;
                 return data;
             }
         } else
         {
-            Debug.LogError("Save File Doesn't Exist At " + dataPath);
+            Debug.LogError("Save File Doesn't Exist At " + _dataPath);
             return null;
         }
     }
 
-    public static bool DataFileExists() => File.Exists(dataPath);
+    public static bool DataFileExists() => File.Exists(_dataPath);
 }
