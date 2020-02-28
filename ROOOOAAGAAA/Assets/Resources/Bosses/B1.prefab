@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 9151991087899813886}
   - component: {fileID: 9151991087899813856}
   m_Layer: 0
-  m_Name: B1 P1
+  m_Name: B1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -174,7 +174,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyPrefab: {fileID: 7792481957546983214, guid: 0037bf37d70a7b84dbd27268f6c23ac7,
     type: 3}
-  SpawnRate: 1
+  SpawnRate: 2.5
   yOffset: 10
 --- !u!114 &9151991087899813856
 MonoBehaviour:

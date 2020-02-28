@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-//Spawner for testing enemies
+﻿using UnityEngine;
 
 public class SpawnEnemyIntervalTargetClosest : MonoBehaviour
 {
@@ -15,11 +11,11 @@ public class SpawnEnemyIntervalTargetClosest : MonoBehaviour
     [SerializeField]
     private float yOffset;
 
-    private float SpawnCD;
+    private float _SpawnCD;
 
     private void Update()
     {
-        if (Time.time >= SpawnCD)
+        if (Time.time >= _SpawnCD)
         {
             var enemyObject = Instantiate(EnemyPrefab);
             enemyObject.transform.position = new Vector3(Random.Range(-20, 20), yOffset);
@@ -28,8 +24,8 @@ public class SpawnEnemyIntervalTargetClosest : MonoBehaviour
 
             if (_target != null)
             {
-                Transform closest = Players.Instance.list[0];
-                float closestDistance = 1000f;
+                Transform closest = null;
+                float closestDistance = Mathf.Infinity;
 
                 foreach (Transform player in Players.Instance.list)
                 {
@@ -42,10 +38,10 @@ public class SpawnEnemyIntervalTargetClosest : MonoBehaviour
                     }
                 }
 
-                _target.SetTarget(target: closest);
+                 _target.SetTarget(target: closest);
             }
 
-            SpawnCD = Time.time + SpawnRate;
+            _SpawnCD = Time.time + SpawnRate;
         }
     }
 }
