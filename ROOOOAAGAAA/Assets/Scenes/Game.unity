@@ -4443,7 +4443,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FirePoint: {fileID: 1589543501}
   ShootKey: 257
-  Damage: 50
+  Damage: 10
   cooldown: 0.2
 --- !u!114 &627006660
 MonoBehaviour:
@@ -5057,7 +5057,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FirePoint: {fileID: 1460096443}
   ShootKey: 102
-  Damage: 50
+  Damage: 10
   cooldown: 0.2
 --- !u!114 &2145235557
 MonoBehaviour:
