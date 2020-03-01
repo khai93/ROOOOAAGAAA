@@ -14,10 +14,25 @@ public class Players : MonoBehaviour
         {
             Instance = this;
 
-            foreach (Transform ply in transform)
+            foreach (Transform player in transform)
             {
-                list.Add(ply);
+                list.Add(player);
             }
         }
+    }
+
+    public static bool isAlive()
+    {
+        bool alive = false;
+
+        foreach (Transform player in Instance.list)
+        {
+            if (player.gameObject.activeSelf)
+            {
+                alive = true;
+            }
+        }
+
+        return alive;
     }
 }

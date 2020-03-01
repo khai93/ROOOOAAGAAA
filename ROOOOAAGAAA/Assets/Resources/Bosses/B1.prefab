@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 9151991087899813887}
   - component: {fileID: 9151991087899813886}
   - component: {fileID: 9151991087899813856}
+  - component: {fileID: 5192167710919505825}
   m_Layer: 0
   m_Name: B1
   m_TagString: Enemy
@@ -169,13 +170,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 9151991087899813880}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9194d1765a781484c9e3976b02879f96, type: 3}
+  m_Script: {fileID: 11500000, guid: 54963dfd885e6e143a9c7280bda4edf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyPrefab: {fileID: 7792481957546983214, guid: 0037bf37d70a7b84dbd27268f6c23ac7,
     type: 3}
-  SpawnRate: 2.5
+  SpawnRate: 3
   yOffset: 10
+  Range: 15
+  DelayToStart: 3
 --- !u!114 &9151991087899813856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,3 +195,18 @@ MonoBehaviour:
   HealthRegenRate: 2
   DeathEffectPrefab: {fileID: 0}
   flashRedWhenHit: 1
+--- !u!114 &5192167710919505825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9151991087899813880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50a65a22af65b264f98a8f6eaaa5066c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EffectPrefab: {fileID: 7416798422346137440, guid: db8ba60fbd6e11b4a9dde4e9ff845a74,
+    type: 3}
+  SpawnRateInSeconds: 5
