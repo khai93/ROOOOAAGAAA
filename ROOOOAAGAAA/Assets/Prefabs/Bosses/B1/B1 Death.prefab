@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2129811287595633278}
   - component: {fileID: 1290202979004395414}
-  - component: {fileID: 1397716966429858980}
   - component: {fileID: 1397716966429858978}
   - component: {fileID: 1397716966429858981}
   m_Layer: 0
@@ -85,22 +84,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!111 &1397716966429858980
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1397716966429858983}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 15c4412da420cff46bae012b67cdd0e1, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: 15c4412da420cff46bae012b67cdd0e1, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!95 &1397716966429858978
 Animator:
   serializedVersion: 3
@@ -111,7 +94,7 @@ Animator:
   m_GameObject: {fileID: 1397716966429858983}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 557464438516b9d4090e8bc6cdd4242a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

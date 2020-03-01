@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 8607978153641690538}
   - component: {fileID: 8607978153641690539}
   - component: {fileID: 8607978153641690512}
-  - component: {fileID: 8607978153641690513}
   - component: {fileID: 8607978153641690514}
+  - component: {fileID: 811288753971067693}
   m_Layer: 0
   m_Name: B1 Entrance
   m_TagString: Enemy
@@ -139,22 +139,6 @@ MonoBehaviour:
   TransitionEffect: {fileID: 0}
   NextPrefab: {fileID: 9151991087899813880, guid: c69c75228a267e14da989e6604631f63,
     type: 3}
---- !u!111 &8607978153641690513
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8607978153641690543}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: f956bd49afc09fe4fac15469a47ab9dc, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: f956bd49afc09fe4fac15469a47ab9dc, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!114 &8607978153641690514
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,3 +153,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duration: 2
   strength: 0.1
+--- !u!95 &811288753971067693
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8607978153641690543}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a4c1896df602b35428f4e58f1442af26, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

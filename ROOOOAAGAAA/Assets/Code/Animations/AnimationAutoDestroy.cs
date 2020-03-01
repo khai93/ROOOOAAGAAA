@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 
-[RequireComponent(typeof(Animation))]
+[RequireComponent(typeof(Animator))]
 public class AnimationAutoDestroy : MonoBehaviour
 {
     private void Awake()
     {
-        Destroy(gameObject, GetComponent<Animation>().clip.length);
+        Destroy(gameObject, GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
     }
 }
