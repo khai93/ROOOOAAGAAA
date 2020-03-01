@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CameraShake : MonoBehaviour
 {
@@ -22,9 +21,7 @@ public class CameraShake : MonoBehaviour
     {
         if (_shakeAmount > 0)
         {
-            float quakeAmt = Random.value * _shakeAmount * 2 - _shakeAmount;
-            Vector3 pp = transform.position;
-            pp.y += quakeAmt; // can also add to x and/or z
+            Vector3 pp = transform.position + Random.insideUnitSphere * _shakeAmount;
             transform.position = pp;
         }
     }
