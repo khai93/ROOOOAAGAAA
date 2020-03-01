@@ -11,16 +11,16 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private KeyCode rightKey;
 
-    private bool isFacingRight = true;
-    private float direction = 0;
-    private Rigidbody2D rb;
-    private SpriteRenderer sr;
+    private bool _isFacingRight = true;
+    private float _direction = 0;
+    private Rigidbody2D _rb;
+    private SpriteRenderer _sr;
 
 
     private void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
-        sr = GetComponent<SpriteRenderer>();
+        _rb = GetComponent<Rigidbody2D>();
+        _sr = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
@@ -29,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKey(leftKey))
         {
-            if (isFacingRight)
+            if (_isFacingRight)
             {
                 Flip();
             }
@@ -39,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKey(rightKey))
         {
-            if (!isFacingRight)
+            if (!_isFacingRight)
             {
                 Flip();
             }
@@ -52,19 +52,17 @@ public class PlayerMovement : MonoBehaviour
             dir = 0;
         }
 
-        Debug.Log(dir);
-
-        direction = dir;
+        _direction = dir;
     }
 
     private void Flip()
     {
-        isFacingRight = !isFacingRight;
-        sr.flipX = !isFacingRight;
+        _isFacingRight = !_isFacingRight;
+        _sr.flipX = !_isFacingRight;
     }
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(WalkSpeed * direction * 10 * Time.deltaTime, rb.velocity.y);
+        _rb.velocity = new Vector2(WalkSpeed * _direction * 10 * Time.deltaTime, _rb.velocity.y);
     }
 }
