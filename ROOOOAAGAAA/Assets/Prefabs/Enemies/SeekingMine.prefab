@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7792481957546983208}
   - component: {fileID: 7792481957546983211}
   - component: {fileID: 7792481957546983209}
+  - component: {fileID: -6382354390750715466}
   m_Layer: 0
   m_Name: SeekingMine
   m_TagString: Enemy
@@ -118,6 +119,7 @@ MonoBehaviour:
   HealthRegenRate: 0.75
   DeathEffectPrefab: {fileID: 3346047664974256361, guid: 296a37001ae4a3a43b1196c6f5a5179e,
     type: 3}
+  flashRedWhenHit: 0
 --- !u!114 &7792481957546983208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,7 +147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosionPrefab: {fileID: 3346047664974256361, guid: 296a37001ae4a3a43b1196c6f5a5179e,
     type: 3}
-  Damage: 50
+  Damage: 20
 --- !u!50 &7792481957546983209
 Rigidbody2D:
   serializedVersion: 4
@@ -167,3 +169,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-6382354390750715466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7792481957546983214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bef473ca0bcb7e64785a000bd41b13a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

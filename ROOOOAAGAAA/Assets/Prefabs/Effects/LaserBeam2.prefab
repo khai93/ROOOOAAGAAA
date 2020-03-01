@@ -157,8 +157,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TargetTag: Player
-  Damage: 15
-  DelayInSeconds: 0.25
+  Damage: 30
+  DelayInSeconds: 0.1
 --- !u!50 &5398659174614864375
 Rigidbody2D:
   serializedVersion: 4

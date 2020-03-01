@@ -1,6 +1,7 @@
 ﻿
 using UnityEngine;
 
+[RequireComponent(typeof(SpriteRenderer))]
 public class ShootGoo : MonoBehaviour
 {
     [SerializeField]

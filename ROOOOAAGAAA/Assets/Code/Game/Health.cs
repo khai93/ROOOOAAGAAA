@@ -15,6 +15,9 @@ public class Health : MonoBehaviour, ITakeDamage
     [SerializeField]
     private bool flashRedWhenHit;
 
+    [SerializeField]
+    private bool DestroyOnDeath;
+
     private float HealthRegenCD;
     private float _health;
     private float baseRed;
@@ -82,12 +85,18 @@ public class Health : MonoBehaviour, ITakeDamage
 
     private void Die()
     {
-        gameObject.SetActive(false);
-
         if (DeathEffectPrefab != null)
         {
             var effect = Instantiate(DeathEffectPrefab);
             effect.transform.position = transform.position;
         }
+
+        if (DestroyOnDeath)
+        {
+            Destroy(gameObject);
+        }
+
+        gameObject.SetActive(false);
+
     }
 }

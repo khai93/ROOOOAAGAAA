@@ -159,7 +159,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TargetTag: Player
   Damage: 10
-  DelayInSeconds: 0.25
+  DelayInSeconds: 0.1
 --- !u!114 &4612101828618944465
 MonoBehaviour:
   m_ObjectHideFlags: 0

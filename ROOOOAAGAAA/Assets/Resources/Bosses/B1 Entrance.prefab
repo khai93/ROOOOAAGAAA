@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &9151991087899813880
+--- !u!1 &8607978153641690543
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,42 +8,41 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 9151991087899813882}
-  - component: {fileID: 9151991087899813881}
-  - component: {fileID: 9151991087899813885}
-  - component: {fileID: 9151991087899813884}
-  - component: {fileID: 9151991087899813883}
-  - component: {fileID: 9151991087899813887}
-  - component: {fileID: 9151991087899813886}
-  - component: {fileID: 9151991087899813856}
+  - component: {fileID: 8607978153641690541}
+  - component: {fileID: 8607978153641690542}
+  - component: {fileID: 8607978153641690538}
+  - component: {fileID: 8607978153641690539}
+  - component: {fileID: 8607978153641690512}
+  - component: {fileID: 8607978153641690513}
+  - component: {fileID: 8607978153641690514}
   m_Layer: 0
-  m_Name: B1
+  m_Name: B1 Entrance
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &9151991087899813882
+--- !u!4 &8607978153641690541
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9151991087899813880}
+  m_GameObject: {fileID: 8607978153641690543}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.3, y: 2.908, z: 0}
+  m_LocalPosition: {x: 1.3, y: 22.9, z: 0}
   m_LocalScale: {x: 3.8887668, y: 3.8887668, z: 3.8887668}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &9151991087899813881
+--- !u!212 &8607978153641690542
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9151991087899813880}
+  m_GameObject: {fileID: 8607978153641690543}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -88,13 +87,13 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &9151991087899813885
+--- !u!58 &8607978153641690538
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9151991087899813880}
+  m_GameObject: {fileID: 8607978153641690543}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -104,14 +103,14 @@ CircleCollider2D:
   m_Offset: {x: -0.04700653, y: -0.00000009196434}
   serializedVersion: 2
   m_Radius: 0.38290676
---- !u!50 &9151991087899813884
+--- !u!50 &8607978153641690539
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9151991087899813880}
+  m_GameObject: {fileID: 8607978153641690543}
   m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -125,70 +124,48 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!95 &9151991087899813883
-Animator:
+--- !u!114 &8607978153641690512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8607978153641690543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09a6f684eb8ae0744a533e4ce30c5145, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TransitionEffect: {fileID: 0}
+  NextPrefab: {fileID: 9151991087899813880, guid: c69c75228a267e14da989e6604631f63,
+    type: 3}
+--- !u!111 &8607978153641690513
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8607978153641690543}
+  m_Enabled: 1
   serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9151991087899813880}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 7df4ab02521889743b1c0834ff808cbc, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &9151991087899813887
+  m_Animation: {fileID: 7400000, guid: f956bd49afc09fe4fac15469a47ab9dc, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: f956bd49afc09fe4fac15469a47ab9dc, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
+--- !u!114 &8607978153641690514
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9151991087899813880}
+  m_GameObject: {fileID: 8607978153641690543}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 878588dc491679d49865c843d41a0cc1, type: 3}
+  m_Script: {fileID: 11500000, guid: 0d9ea2cf5541e304ebf1eca6080141f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PhaseTransitionEffect: {fileID: 0}
-  NextPhasePrefab: {fileID: 7894436261087316456, guid: ab26ba08184c7f94d9bab48caec0e12a,
-    type: 3}
-  ActivateAtHealthPercentage: 50
---- !u!114 &9151991087899813886
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9151991087899813880}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9194d1765a781484c9e3976b02879f96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EnemyPrefab: {fileID: 7792481957546983214, guid: 0037bf37d70a7b84dbd27268f6c23ac7,
-    type: 3}
-  SpawnRate: 2.5
-  yOffset: 10
---- !u!114 &9151991087899813856
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9151991087899813880}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b144deeb64842b24d8243f9c2f8f1c70, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MaxHealth: 1000
-  HealthRegenRate: 2
-  DeathEffectPrefab: {fileID: 0}
-  flashRedWhenHit: 1
+  duration: 2
+  strength: 0.1
