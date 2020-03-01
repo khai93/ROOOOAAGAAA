@@ -15,18 +15,18 @@ public class ShootGoo : MonoBehaviour
     [SerializeField]
     private float cooldown;
 
-    private float cd;
+    private float _cd;
 
-    private SpriteRenderer spr;
+    private SpriteRenderer _spr;
 
     private void Awake()
     {
-        spr = GetComponent<SpriteRenderer>();   
+        _spr = GetComponent<SpriteRenderer>();   
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(ShootKey) && Time.time >= cd)
+        if (Input.GetKeyDown(ShootKey) && Time.time >= _cd)
         {
             var GooInstance = GooPool.Instance.Get();
 
@@ -36,10 +36,10 @@ public class ShootGoo : MonoBehaviour
             // If Player is flipped then flip firepoint position
 
             Vector3 flippedFirepoint = FirePoint.position - new Vector3(0.59f * 2, 0);
-            GooInstance.transform.position = (spr.flipX ? flippedFirepoint : FirePoint.position);
+            GooInstance.transform.position = (_spr.flipX ? flippedFirepoint : FirePoint.position);
 
             GooInstance.gameObject.SetActive(true);
-            cd = Time.time + cooldown;
+            _cd = Time.time + cooldown;
         }
     }
 }

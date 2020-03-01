@@ -18,33 +18,33 @@ public class PlayerJump : MonoBehaviour
     [SerializeField]
     private float maxJumps;
 
-    private Rigidbody2D rb;
+    private Rigidbody2D _rb;
 
-    public bool isGrounded;
-    private float JumpsLeft;
+    public bool _isGrounded;
+    private float _JumpsLeft;
 
     private void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
-        JumpsLeft = maxJumps;
+        _rb = GetComponent<Rigidbody2D>();
+        _JumpsLeft = maxJumps;
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(jumpKey))
         {
-            if (JumpsLeft >0)
+            if (_JumpsLeft >0)
             {
-                rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-                JumpsLeft--;
+                _rb.velocity = new Vector2(_rb.velocity.x, jumpForce);
+                _JumpsLeft--;
             }
         }
 
-        if (isGrounded && JumpsLeft <= 0)
+        if (_isGrounded && _JumpsLeft <= 0)
         {
-            JumpsLeft = maxJumps;
+            _JumpsLeft = maxJumps;
         }
 
-        isGrounded = Physics2D.OverlapCircle(GroundCheck.position, 0.15f, groundLayer);
+        _isGrounded = Physics2D.OverlapCircle(GroundCheck.position, 0.15f, groundLayer);
     }
 }
