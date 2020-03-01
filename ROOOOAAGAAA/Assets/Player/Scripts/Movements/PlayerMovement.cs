@@ -23,33 +23,38 @@ public class PlayerMovement : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
     }
 
-    // Update is called once per frame
     private void Update()
     {
-        if (Input.GetKeyDown(leftKey))
+        float dir = 0;
+
+        if (Input.GetKey(leftKey))
         {
             if (isFacingRight)
             {
                 Flip();
             }
 
-            direction = -1;
+            dir -= 1;
         } 
 
-        if (Input.GetKeyDown(rightKey))
+        if (Input.GetKey(rightKey))
         {
             if (!isFacingRight)
             {
                 Flip();
             }
 
-            direction = 1;
+            dir += 1;
         } 
 
         if (!Input.GetKey(rightKey) && !Input.GetKey(leftKey))
         {
-            direction = 0;
+            dir = 0;
         }
+
+        Debug.Log(dir);
+
+        direction = dir;
     }
 
     private void Flip()
