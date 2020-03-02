@@ -26,20 +26,23 @@ public class ShootGoo : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(ShootKey) && Time.time >= _cd)
+        var canShootGood = Input.GetKeyDown(ShootKey) && Time.time >= _cd;
+        if (canShootGood)
         {
-            var GooInstance = GooPool.Instance.Get();
-
-            // Init Goo with enemy tag "Enemy" for players
-            GooInstance.Init(transform, "Enemy", Damage);
-
-            // If Player is flipped then flip firepoint position
-
-            Vector3 flippedFirepoint = FirePoint.position - new Vector3(0.59f * 2, 0);
-            GooInstance.transform.position = (_spr.flipX ? flippedFirepoint : FirePoint.position);
-
-            GooInstance.gameObject.SetActive(true);
-            _cd = Time.time + cooldown;
+            ShootGoo();
         }
+    }
+
+    private void ShootGoo()
+    {
+        var GooInstance = GooPool.Instance.Get();
+        GooInstance.Init(transform, "Enemy", Damage);
+
+        // If Player is flipped then flip firepoint position
+        Vector3 flippedFirepoint = FirePoint.position - new Vector3(0.59f * 2, 0);
+        GooInstance.transform.position = (_spr.flipX ? flippedFirepoint : FirePoint.position);
+
+        GooInstance.gameObject.SetActive(true);
+        _cd = Time.time + cooldown;
     }
 }

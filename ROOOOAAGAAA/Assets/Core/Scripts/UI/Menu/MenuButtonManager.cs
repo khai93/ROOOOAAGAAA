@@ -11,8 +11,6 @@ public class MenuButtonManager : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI confirmationUI;
 
-
-
     public void NewGameConfirmBtn()
     {
         if (confirmationUI != null)
@@ -31,7 +29,6 @@ public class MenuButtonManager : MonoBehaviour
     public void LoadGameBtn()
     {
         bool loaded = GameManager.LoadGame();
-
         if (loaded)
         {
             SceneManager.LoadScene(gameScene);
@@ -39,7 +36,6 @@ public class MenuButtonManager : MonoBehaviour
         {
             Debug.LogError("Could not load data at this time!");
         }
-       
     }
 
     public void ExitGameBtn()

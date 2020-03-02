@@ -12,6 +12,12 @@ public class TargetClosestPlayer : MonoBehaviour
 
     private void Update()
     {
+        var closest = FindClosest();
+        _target.SetTarget(target: closest);
+    }
+
+    private Transform FindClosest()
+    {
         Transform closest = null;
         float closestDistance = Mathf.Infinity;
 
@@ -26,6 +32,6 @@ public class TargetClosestPlayer : MonoBehaviour
             }
         }
 
-        _target.SetTarget(target: closest);
+        return closest;
     }
 }
