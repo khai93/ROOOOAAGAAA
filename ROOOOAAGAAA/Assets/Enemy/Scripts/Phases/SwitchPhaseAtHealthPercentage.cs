@@ -23,18 +23,23 @@ public class SwitchPhaseAtHealthPercentage : MonoBehaviour
 
     private void Update()
     {
-        if (health.GetCurrentHealth() <= health.MaxHealth * (ActivateAtHealthPercentage / 100))
+        var isHealthUnderMax = health.GetCurrentHealth() <= health.MaxHealth * (ActivateAtHealthPercentage / 100);
+        if (isHealthUnderMax)
         {
-            GameObject newEntity = Instantiate(NextPhasePrefab);
-            newEntity.transform.position = transform.position;
-
-            if (PhaseTransitionEffect != null)
-            {
-                GameObject effect = Instantiate(PhaseTransitionEffect);
-                effect.transform.position = transform.position;
-            }
-
+            SwitchPhase();
             Destroy(gameObject);
+        }
+    }
+
+    private void SwitchPhase()
+    {
+        GameObject newEntity = Instantiate(NextPhasePrefab);
+        newEntity.transform.position = transform.position;
+
+        if (PhaseTransitionEffect != null)
+        {
+            GameObject effect = Instantiate(PhaseTransitionEffect);
+            effect.transform.position = transform.position;
         }
     }
 }

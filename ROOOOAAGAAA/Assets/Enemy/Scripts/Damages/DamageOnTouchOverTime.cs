@@ -17,18 +17,18 @@ public class DamageOnTouchOverTime : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        
-        if (collision.CompareTag(TargetTag) && Time.time >= _nextCD)
+        bool isTargetHitAndNoCooldown = collision.CompareTag(TargetTag) && Time.time >= _nextCD;
+        if (isTargetHitAndNoCooldown)
         {
             Debug.Log(collision.tag);
-            Health health = collision.GetComponent<Health>();
-
-            if (health != null)
-            {
-                health.TakeDamage(Damage);
-            }
-
+            DealDamage(collision);
             _nextCD = Time.time + DelayInSeconds;
         }
+    }
+
+    private void DealDamage(Collider2D collision)
+    {
+        Health health = collision.GetComponent<Health>();
+        health?.TakeDamage(Damage);
     }
 }

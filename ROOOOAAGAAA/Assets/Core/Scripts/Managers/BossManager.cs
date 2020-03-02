@@ -46,6 +46,9 @@ public class BossManager : MonoBehaviour
             _inTransition = false;
         }
 
+        // It's really weird to see a comparison of bosses.
+        // Does it mean that you need to switch to a new boss?
+        // Could be calrified with something such as BossIndex.
         if (GameManager.Boss > _currentBoss)
         {
             _currentBoss = GameManager.Boss;

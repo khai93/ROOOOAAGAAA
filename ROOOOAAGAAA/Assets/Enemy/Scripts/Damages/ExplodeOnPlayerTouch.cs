@@ -14,17 +14,22 @@ public class ExplodeOnPlayerTouch : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            var effect = Instantiate(explosionPrefab);
-            effect.transform.position = transform.position;
-
-            ITakeDamage _takeDamage = collision.GetComponent<ITakeDamage>();
-
-            if (_takeDamage is ITakeDamage)
-            {
-                _takeDamage.TakeDamage(Damage);
-            }
-
+            ShowEffect();
+            DealDamage();
             Destroy(gameObject);
         }
+    }
+
+    private void ShowEffect()
+    {
+        var effect = Instantiate(explosionPrefab);
+        effect.transform.position = transform.position;
+    }
+
+    private void DealDamage()
+    {
+        ITakeDamage _takeDamage = collision.GetComponent<ITakeDamage>();
+        // I don't think there was any point casting.
+        _takeDamage.TakeDamage(Damage);
     }
 }

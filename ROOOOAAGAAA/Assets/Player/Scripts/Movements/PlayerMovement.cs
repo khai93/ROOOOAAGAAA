@@ -11,11 +11,14 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private KeyCode rightKey;
 
+    // this is very confusing for someone who is not familiar with the code.
+    // Does it mean that the opposite is left? Or straight or back?
+    // To make the intention more clear, you can use enum. (refer to bottom).
+    // private Direction Facing = Facing.Right;
     private bool _isFacingRight = true;
     private float _direction = 0;
     private Rigidbody2D _rb;
     private SpriteRenderer _sr;
-
 
     private void Awake()
     {
@@ -27,31 +30,21 @@ public class PlayerMovement : MonoBehaviour
     {
         float dir = 0;
 
-        if (Input.GetKey(leftKey))
+        // all of this cannot happen simulatiously
+        // either one will happen
+        if (Input.GetKey(leftKey) && _isFacingRight)
         {
-            if (_isFacingRight)
-            {
-                Flip();
-            }
-
+            Flip();
             dir -= 1;
-        } 
-
-        if (Input.GetKey(rightKey))
-        {
-            if (!_isFacingRight)
-            {
-                Flip();
-            }
-
-            dir += 1;
-        } 
-
-        if (!Input.GetKey(rightKey) && !Input.GetKey(leftKey))
-        {
-            dir = 0;
         }
-
+        else if (Input.GetKey(rightKey) && !_isFacingRight)
+        {
+            Flip();
+            // It's confusing: what does it mean to direction to be incremented?
+            // Is it the speed at which it moves?
+            dir += 1;
+        }
+        // the last condition was redundant, because default value is 0 anyways.
         _direction = dir;
     }
 
@@ -66,3 +59,13 @@ public class PlayerMovement : MonoBehaviour
         _rb.velocity = new Vector2(WalkSpeed * _direction * 10 * Time.deltaTime, _rb.velocity.y);
     }
 }
+
+// Facing example
+enum Direction
+{
+    Left,
+    Right,
+    Forward,
+    Back
+}
+

@@ -14,10 +14,6 @@ public class ShakeCameraForSeconds : MonoBehaviour
     {
         Camera main = Camera.main;
         CameraShake shake = main.GetComponent<CameraShake>();
-
-        if (shake != null)
-        {
-            shake.Shake(strength, duration);
-        }
+        shake?.Shake(strength, duration);
     }
 }

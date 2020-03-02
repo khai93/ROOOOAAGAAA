@@ -19,17 +19,27 @@ public class SwitchPrefabAfterAnimation : MonoBehaviour
 
     private void Update()
     {
-        if (Time.time < _animationEndTime) return;
+        bool isAnimationStopped = Time.time >= _animationEndTime;
+        if (isAnimationStopped)
+        {
+            SpawnNextPrefab();
+            TryToSpawnTransitionEffect();
+            Destroy(gameObject);
+        }
+    }
 
+    private void SpawnNextPrefab()
+    {
         GameObject newEntity = Instantiate(NextPrefab);
         newEntity.transform.position = transform.position;
+    }
 
+    private void TryToSpawnTransitionEffect()
+    {
         if (TransitionEffect != null)
         {
             GameObject effect = Instantiate(TransitionEffect);
             effect.transform.position = transform.position;
         }
-
-        Destroy(gameObject);
     }
 }

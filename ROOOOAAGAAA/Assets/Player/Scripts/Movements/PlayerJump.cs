@@ -9,6 +9,10 @@ public class PlayerJump : MonoBehaviour
     [SerializeField]
     private LayerMask groundLayer;
 
+    // I think it would be better to have control checks in one centralized place.
+    // Let controls manager be responsible for all the controls.
+    // PlayerJump is just a behaviour. It shouldn't trigger itself.
+    // ControlsManager should trigger PlayerJump. It sounds natural that way.
     [SerializeField]
     private KeyCode jumpKey;
 
@@ -20,6 +24,7 @@ public class PlayerJump : MonoBehaviour
 
     private Rigidbody2D _rb;
 
+    // Should be IsGrounded.
     public bool _isGrounded;
     private float _JumpsLeft;
 
@@ -31,15 +36,22 @@ public class PlayerJump : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(jumpKey))
-        {
-            if (_JumpsLeft >0)
-            {
-                _rb.velocity = new Vector2(_rb.velocity.x, jumpForce);
-                _JumpsLeft--;
-            }
-        }
+        TryToJump();
+        UpdateJump();
+    }
 
+    private void TryToJump()
+    {
+        var canJump = Input.GetKeyDown(jumpKey) && _JumpsLeft > 0;
+        if (canJump)
+        {
+            _rb.velocity = new Vector2(_rb.velocity.x, jumpForce);
+            _JumpsLeft--;
+        }
+    }
+
+    private void UpdateJump()
+    {
         if (_isGrounded && _JumpsLeft <= 0)
         {
             _JumpsLeft = maxJumps;
@@ -47,4 +59,6 @@ public class PlayerJump : MonoBehaviour
 
         _isGrounded = Physics2D.OverlapCircle(GroundCheck.position, 0.15f, groundLayer);
     }
+
+
 }
