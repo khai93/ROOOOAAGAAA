@@ -15,7 +15,7 @@ public class ExplodeOnPlayerTouch : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             ShowEffect();
-            DealDamage();
+            DealDamage(collision);
             Destroy(gameObject);
         }
     }
@@ -26,9 +26,9 @@ public class ExplodeOnPlayerTouch : MonoBehaviour
         effect.transform.position = transform.position;
     }
 
-    private void DealDamage()
+    private void DealDamage(Collider2D collision)
     {
-        ITakeDamage _takeDamage = collision.GetComponent<ITakeDamage>();
+        IDamageable _takeDamage = collision.GetComponent<IDamageable>();
         // I don't think there was any point casting.
         _takeDamage.TakeDamage(Damage);
     }

@@ -1,5 +1,6 @@
 ﻿
 using UnityEngine;
+using System.IO;
 using UnityEngine.SceneManagement;
 using TMPro;
 
@@ -13,10 +14,7 @@ public class MenuButtonManager : MonoBehaviour
 
     public void NewGameConfirmBtn()
     {
-        if (confirmationUI != null)
-        {
-            confirmationUI.gameObject.SetActive(true);
-        }
+        confirmationUI?.gameObject.SetActive(true);
     }
 
     public void NewGameBtn()
@@ -28,14 +26,15 @@ public class MenuButtonManager : MonoBehaviour
 
     public void LoadGameBtn()
     {
-        bool loaded = GameManager.LoadGame();
-        if (loaded)
+        try
         {
+            GameManager.LoadGame();
             SceneManager.LoadScene(gameScene);
-        } else
+        } catch (FileNotFoundException)
         {
             Debug.LogError("Could not load data at this time!");
         }
+        
     }
 
     public void ExitGameBtn()

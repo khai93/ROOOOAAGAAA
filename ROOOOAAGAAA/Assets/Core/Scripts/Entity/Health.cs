@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Health : MonoBehaviour, ITakeDamage
+public class Health : MonoBehaviour, IDamageable
 {
     public float MaxHealth;
 

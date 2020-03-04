@@ -1,48 +1,41 @@
 ﻿using UnityEngine;
 
+[RequireComponent(typeof(ControlsManager))]
 [RequireComponent(typeof(SpriteRenderer))]
 public class ShootGoo : MonoBehaviour
 {
     [SerializeField]
     private Transform FirePoint;
 
-    [SerializeField]
-    private KeyCode ShootKey;
-
-    [SerializeField]
-    private float Damage;
-
-    [SerializeField]
-    private float cooldown;
-
-    private float _cd;
-
     private SpriteRenderer _spr;
+    private ControlsManager _controlsManager;
+    private float _cd;
 
     private void Awake()
     {
-        _spr = GetComponent<SpriteRenderer>();   
+        _spr = GetComponent<SpriteRenderer>();
+        _controlsManager = GetComponent<ControlsManager>();
     }
 
-    private void Update()
+    public void TryToShoot()
     {
-        var canShootGood = Input.GetKeyDown(ShootKey) && Time.time >= _cd;
-        if (canShootGood)
+        var canShootGoo = Time.time >= _cd;
+        if (canShootGoo)
         {
-            ShootGoo();
+            Shoot();
         }
     }
 
-    private void ShootGoo()
+    private void Shoot()
     {
         var GooInstance = GooPool.Instance.Get();
-        GooInstance.Init(transform, "Enemy", Damage);
+        GooInstance.Init(transform, "Enemy", _controlsManager.Damage);
 
         // If Player is flipped then flip firepoint position
         Vector3 flippedFirepoint = FirePoint.position - new Vector3(0.59f * 2, 0);
         GooInstance.transform.position = (_spr.flipX ? flippedFirepoint : FirePoint.position);
 
         GooInstance.gameObject.SetActive(true);
-        _cd = Time.time + cooldown;
+        _cd = Time.time + _controlsManager.ShootCooldown;
     }
 }

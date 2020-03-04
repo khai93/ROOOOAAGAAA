@@ -1,64 +1,37 @@
 ﻿using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(ControlsManager))]
 public class PlayerJump : MonoBehaviour
 {
-    [SerializeField]
-    private Transform GroundCheck;
-
-    [SerializeField]
-    private LayerMask groundLayer;
-
-    // I think it would be better to have control checks in one centralized place.
-    // Let controls manager be responsible for all the controls.
-    // PlayerJump is just a behaviour. It shouldn't trigger itself.
-    // ControlsManager should trigger PlayerJump. It sounds natural that way.
-    [SerializeField]
-    private KeyCode jumpKey;
-
-    [SerializeField]
-    private float jumpForce;
-
-    [SerializeField]
-    private float maxJumps;
-
     private Rigidbody2D _rb;
+    private ControlsManager _controlsManager;
 
-    // Should be IsGrounded.
-    public bool _isGrounded;
     private float _JumpsLeft;
 
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
-        _JumpsLeft = maxJumps;
+        _controlsManager = GetComponent<ControlsManager>();
+        _JumpsLeft = _controlsManager.MaxJumps;
     }
 
     private void Update()
     {
-        TryToJump();
-        UpdateJump();
+        if (_controlsManager.IsGrounded && _JumpsLeft <= 0)
+        {
+            _JumpsLeft = _controlsManager.MaxJumps;
+        }
     }
 
-    private void TryToJump()
+    public void TryToJump()
     {
-        var canJump = Input.GetKeyDown(jumpKey) && _JumpsLeft > 0;
+        var canJump = _controlsManager.IsGrounded || _JumpsLeft > 0;
+
         if (canJump)
         {
-            _rb.velocity = new Vector2(_rb.velocity.x, jumpForce);
+            _rb.velocity = new Vector2(_rb.velocity.x, _controlsManager.JumpForce);
             _JumpsLeft--;
         }
     }
-
-    private void UpdateJump()
-    {
-        if (_isGrounded && _JumpsLeft <= 0)
-        {
-            _JumpsLeft = maxJumps;
-        }
-
-        _isGrounded = Physics2D.OverlapCircle(GroundCheck.position, 0.15f, groundLayer);
-    }
-
-
 }

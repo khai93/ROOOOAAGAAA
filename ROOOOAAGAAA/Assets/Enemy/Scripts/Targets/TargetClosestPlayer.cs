@@ -13,7 +13,11 @@ public class TargetClosestPlayer : MonoBehaviour
     private void Update()
     {
         var closest = FindClosest();
-        _target.SetTarget(target: closest);
+
+        if (closest != null)
+        {
+            _target.SetTarget(target: closest);
+        }
     }
 
     private Transform FindClosest()
@@ -21,7 +25,7 @@ public class TargetClosestPlayer : MonoBehaviour
         Transform closest = null;
         float closestDistance = Mathf.Infinity;
 
-        foreach (Transform player in Players.Instance.list)
+        foreach (Transform player in PlayersContainer.Instance.Players)
         {
             float distance = Vector2.Distance(transform.position, player.position);
 

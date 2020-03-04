@@ -35,11 +35,11 @@ public class GooPooled : MonoBehaviour
 
         if (collision.CompareTag(enemyTag))
         {
-           
 
-            ITakeDamage _takeDamage = collision.GetComponent<ITakeDamage>();
 
-            if (_takeDamage is ITakeDamage)
+            IDamageable _takeDamage = collision.GetComponent<IDamageable>();
+
+            if (_takeDamage is IDamageable)
             {
                 _takeDamage.TakeDamage(Damage);
             }

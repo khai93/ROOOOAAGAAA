@@ -1,10 +1,9 @@
-﻿using UnityEngine;
-using System.IO;
+﻿using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
 public static class SaveSystem
 {
-    private static readonly string _dataPath = @$"{Application.persistentDataPath}/game.data";
+    private static readonly string _dataPath = @"{Application.persistentDataPath}/game.data";
 
     public static void Save ()
     {
@@ -31,12 +30,7 @@ public static class SaveSystem
             }
         } else
         {
-            Debug.LogError("Save File Doesn't Exist At " + _dataPath);
-            return null;
+            throw new FileNotFoundException("Data file doesn't exist.");
         }
     }
-
-    // The context is GameData.
-    // GameData.Exists() is enough, because the rest is known from the calling context.
-    public static bool DataFileExists() => File.Exists(_dataPath);
 }
