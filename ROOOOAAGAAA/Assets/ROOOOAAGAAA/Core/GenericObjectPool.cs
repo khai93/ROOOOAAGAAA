@@ -1,38 +1,41 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class GenericObjectPool<T> : MonoBehaviour where T : Component
+namespace ROOOOAAGAAA.Core
 {
-    [SerializeField] private T prefab;
-
-    private Queue<T> objects = new Queue<T>();
-    public static GenericObjectPool<T> Instance { get; private set; }
-
-    private void Awake()
+    public abstract class GenericObjectPool<T> : MonoBehaviour where T : Component
     {
-        Instance = this;
-    }
+        [SerializeField] private T prefab;
 
-    public T Get()
-    {
-        if (objects.Count == 0)
+        private Queue<T> objects = new Queue<T>();
+        public static GenericObjectPool<T> Instance { get; private set; }
+
+        private void Awake()
         {
-            AddObjects(1);
+            Instance = this;
         }
 
-        return objects.Dequeue();
-    }
+        public T Get()
+        {
+            if (objects.Count == 0)
+            {
+                AddObjects(1);
+            }
 
-    private void AddObjects(int count)
-    {
-        var newObject = GameObject.Instantiate(prefab);
-        newObject.gameObject.SetActive(false);
-        objects.Enqueue(newObject);
-    }
+            return objects.Dequeue();
+        }
 
-    public void ReturnToPool(T objectToReturn)
-    {
-        objectToReturn.gameObject.SetActive(false);
-        objects.Enqueue(objectToReturn);
+        private void AddObjects(int count)
+        {
+            var newObject = GameObject.Instantiate(prefab);
+            newObject.gameObject.SetActive(false);
+            objects.Enqueue(newObject);
+        }
+
+        public void ReturnToPool(T objectToReturn)
+        {
+            objectToReturn.gameObject.SetActive(false);
+            objects.Enqueue(objectToReturn);
+        }
     }
 }

@@ -1,29 +1,30 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class CreateEffectOnCurrentPositionInterval : MonoBehaviour
+namespace ROOOOAAGAAA.Effect
 {
-    [SerializeField]
-    private GameObject EffectPrefab;
-
-    [SerializeField]
-    private float SpawnRateInSeconds;
-
-    private float nextTime;
-
-    private void Awake()
+    public class CreateEffectOnCurrentPositionInterval : MonoBehaviour
     {
-        nextTime = SpawnRateInSeconds;
-    }
+        [SerializeField]
+        private GameObject EffectPrefab;
 
-    private void Update()
-    {
-        if (Time.time >= nextTime)
+        [SerializeField]
+        private float SpawnRateInSeconds;
+
+        private float nextTime;
+
+        private void Awake()
         {
-            var Effect = Instantiate(EffectPrefab);
-            Effect.transform.position = transform.position;
-            nextTime = Time.time + SpawnRateInSeconds;
+            nextTime = SpawnRateInSeconds;
+        }
+
+        private void Update()
+        {
+            if (Time.time >= nextTime)
+            {
+                var Effect = Instantiate(EffectPrefab);
+                Effect.transform.position = transform.position;
+                nextTime = Time.time + SpawnRateInSeconds;
+            }
         }
     }
 }
