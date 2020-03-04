@@ -1,24 +1,22 @@
 ﻿using ROOOOAAGAAA.Persistence;
+using System.Collections.Generic;
+using UnityEngine;
 
 namespace ROOOOAAGAAA.Core
 {
     public static class GameManager
     {
-        // Consider using linked list.
-        public static int Boss { get; private set; }
+        public static int BossIndex { get; private set; }
 
         public static void ResetGame()
         {
-            Boss = 0;
+            BossIndex = 0;
         }
 
         public static void SaveGame()
         {
             SaveSystem.Save();
         }
-
-        // Prefer to use XML docs for comments.
-        // Prefer not to return success flags, instead just throw an exception if it failed.
 
         /// <summary>
         /// Loads game with the current active boss.
@@ -31,7 +29,7 @@ namespace ROOOOAAGAAA.Core
 
             if (data != null)
             {
-                Boss = data.Boss;
+                BossIndex = data.BossIndex;
                 return;
             }
 

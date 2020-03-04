@@ -5,11 +5,11 @@ namespace ROOOOAAGAAA.Persistence
     [System.Serializable]
     public class GameData
     {
-        public int Boss;
+        public int BossIndex;
 
         public GameData()
         {
-            Boss = GameManager.Boss;
+            BossIndex = GameManager.BossIndex;
         }
     }
 }
