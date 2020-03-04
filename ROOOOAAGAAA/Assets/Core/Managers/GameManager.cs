@@ -9,7 +9,7 @@ namespace ROOOOAAGAAA.Core
 
         public static void ResetGame()
         {
-            Boss = 1;
+            Boss = 0;
         }
 
         public static void SaveGame()
@@ -23,18 +23,19 @@ namespace ROOOOAAGAAA.Core
         /// <summary>
         /// Loads game with the current active boss.
         /// </summary>
-        /// <returns>true if successfully loaded, else false.</returns>
-        public static bool LoadGame()
+        /// <returns></returns>
+        /// <exception cref="System.Exception">Thrown when game was not loaded successfully</exception>
+        public static void LoadGame()
         {
             GameData data = SaveSystem.LoadGame();
 
             if (data != null)
             {
                 Boss = data.Boss;
-                return true;
+                return;
             }
 
-            return false;
+            throw new System.Exception("Could not load game.");
         }
 
     }
