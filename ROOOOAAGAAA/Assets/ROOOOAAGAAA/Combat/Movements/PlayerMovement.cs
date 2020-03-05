@@ -4,21 +4,24 @@ namespace ROOOOAAGAAA.Combat
 {
     [RequireComponent(typeof(Rigidbody2D))]
     [RequireComponent(typeof(SpriteRenderer))]
-    [RequireComponent(typeof(ControlsManager))]
+    [RequireComponent(typeof(KeyboardKeyBinder))]
     public class PlayerMovement : MonoBehaviour
     {
+        [SerializeField]
+        private float WalkSpeed;
+
         private Direction _Facing = Direction.Right;
         private float _scalar = 0;
 
         private Rigidbody2D _rb;
         private SpriteRenderer _sr;
-        private ControlsManager _controlsManager;
+        private KeyboardKeyBinder _keyBinder;
 
         private void Awake()
         {
             _rb = GetComponent<Rigidbody2D>();
             _sr = GetComponent<SpriteRenderer>();
-            _controlsManager = GetComponent<ControlsManager>();
+            _keyBinder = GetComponent<KeyboardKeyBinder>();
         }
 
         private void Flip()
@@ -30,7 +33,7 @@ namespace ROOOOAAGAAA.Combat
 
         private void FixedUpdate()
         {
-            _rb.velocity = new Vector2(_controlsManager.WalkSpeed * _scalar * 10 * Time.deltaTime, _rb.velocity.y);
+            _rb.velocity = new Vector2(WalkSpeed * _scalar * 10 * Time.deltaTime, _rb.velocity.y);
         }
 
         public void Move(Direction dirPressed)
