@@ -17,6 +17,8 @@ GameObject:
   - component: {fileID: -4224760196864437687}
   - component: {fileID: 7267187038514691591}
   - component: {fileID: 1062655178640136081}
+  - component: {fileID: 4024327521924074620}
+  - component: {fileID: 4204782586084561437}
   m_Layer: 0
   m_Name: B1 P2
   m_TagString: Enemy
@@ -210,3 +212,35 @@ MonoBehaviour:
   EffectPrefab: {fileID: 6017331305384838063, guid: 42f2edacc3657ab46869b7ff10d22c54,
     type: 3}
   SpawnRateInSeconds: 3
+--- !u!114 &4024327521924074620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7894436261087316456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54963dfd885e6e143a9c7280bda4edf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Prefab: {fileID: 8253376385922607158, guid: da9d17d3c01ccac4fb35a25476910255, type: 3}
+  SpawnRate: 1
+  yOffset: 8
+  Range: 10
+  DelayToStart: 0
+--- !u!114 &4204782586084561437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7894436261087316456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba58baae8232508418a4d74ac32cfee7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectPrefab: {fileID: 0}
+  Damage: 10
+  DestroyOnTouch: 0
