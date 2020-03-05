@@ -6,7 +6,7 @@ namespace ROOOOAAGAAA.Combat
     public class FlyTowardsTarget : MonoBehaviour, ITarget<Transform>
     {
         [SerializeField]
-        private float speed;
+        private float Speed;
 
         private Transform _target;
 
@@ -17,9 +17,9 @@ namespace ROOOOAAGAAA.Combat
 
         private void Update()
         {
-            if (_target is Transform)
+            if (_target != null)
             {
-                transform.position = Vector2.MoveTowards(transform.position, _target.position, speed * Time.deltaTime);
+                transform.position = Vector2.MoveTowards(transform.position, _target.position, Speed * Time.deltaTime);
             }
         }
     }

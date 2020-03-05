@@ -3,34 +3,44 @@ using UnityEngine;
 
 namespace ROOOOAAGAAA.Combat
 {
-    public class ExplodeOnPlayerTouch : MonoBehaviour
+    public class DamageOnPlayerTouch : MonoBehaviour
     {
         [SerializeField]
-        private GameObject explosionPrefab;
+        private GameObject effectPrefab;
 
         [SerializeField]
         private float Damage;
+
+        [SerializeField]
+        private bool DestroyOnTouch;
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.CompareTag("Player"))
             {
-                ShowEffect();
+                TryShowEffect();
                 DealDamage(collision);
-                Destroy(gameObject);
+
+                if (DestroyOnTouch)
+                {
+                    Destroy(gameObject);
+                }
             }
         }
 
-        private void ShowEffect()
+        private void TryShowEffect()
         {
-            var effect = Instantiate(explosionPrefab);
-            effect.transform.position = transform.position;
+            if (effectPrefab != null)
+            {
+                var effect = Instantiate(effectPrefab);
+                effect.transform.position = transform.position;
+            }
+            
         }
 
         private void DealDamage(Collider2D collision)
         {
             IDamageable _takeDamage = collision.GetComponent<IDamageable>();
-            // I don't think there was any point casting.
             _takeDamage.TakeDamage(Damage);
         }
     }

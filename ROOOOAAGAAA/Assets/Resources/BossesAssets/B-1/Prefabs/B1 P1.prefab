@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 9151991087899813887}
   - component: {fileID: 9151991087899813856}
   - component: {fileID: 5192167710919505825}
+  - component: {fileID: 2492380232547980376}
   - component: {fileID: 6460062629631561779}
   m_Layer: 0
   m_Name: B1 P1
@@ -193,6 +194,23 @@ MonoBehaviour:
   EffectPrefab: {fileID: 7416798422346137440, guid: db8ba60fbd6e11b4a9dde4e9ff845a74,
     type: 3}
   SpawnRateInSeconds: 5
+--- !u!114 &2492380232547980376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9151991087899813880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54963dfd885e6e143a9c7280bda4edf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Prefab: {fileID: 8253376385922607158, guid: da9d17d3c01ccac4fb35a25476910255, type: 3}
+  SpawnRate: 4
+  yOffset: 5
+  Range: 10
+  DelayToStart: 4
 --- !u!114 &6460062629631561779
 MonoBehaviour:
   m_ObjectHideFlags: 0
