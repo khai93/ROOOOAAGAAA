@@ -1,6 +1,5 @@
 ﻿using System.Linq;
 using UnityEngine;
-using ROOOOAAGAAA.Core;
 
 namespace ROOOOAAGAAA.Core
 {
@@ -32,7 +31,7 @@ namespace ROOOOAAGAAA.Core
             // Load all Bosses
             _bossPrefabs = Resources.LoadAll("Bosses", typeof(GameObject)).Cast<GameObject>().ToArray();
 
-            _currentBoss = GameManager.Boss;
+            _currentBoss = GameManager.BossIndex;
 
             // Start up transition for the first boss
             _NextTransition = Time.time + TransitionTime;
@@ -44,16 +43,13 @@ namespace ROOOOAAGAAA.Core
             // Check if next transition is initialized
             if (_inTransition && Time.time >= _NextTransition)
             {
-                currentBossObject = Instantiate(_bossPrefabs[GameManager.Boss]);
+                currentBossObject = Instantiate(_bossPrefabs[GameManager.BossIndex]);
                 _inTransition = false;
             }
 
-            // It's really weird to see a comparison of bosses.
-            // Does it mean that you need to switch to a new boss?
-            // Could be calrified with something such as BossIndex.
-            if (GameManager.Boss > _currentBoss)
+            if (GameManager.BossIndex > _currentBoss)
             {
-                _currentBoss = GameManager.Boss;
+                _currentBoss = GameManager.BossIndex;
 
                 // Dying does not actually remove the object from game, just makes it inactive
                 Destroy(currentBossObject);
@@ -61,7 +57,6 @@ namespace ROOOOAAGAAA.Core
                 _NextTransition = Time.time + TransitionTime;
                 _inTransition = true;
             }
-
         }
     }
 }

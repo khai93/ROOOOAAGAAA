@@ -1,11 +1,12 @@
 ﻿using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using UnityEngine;
 
 namespace ROOOOAAGAAA.Persistence
 {
     public static class SaveSystem
     {
-        private static readonly string _dataPath = @"{Application.persistentDataPath}/game.data";
+        private static readonly string _dataPath = $"{Application.persistentDataPath}/game.data";
 
         public static void Save()
         {
