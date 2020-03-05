@@ -11,7 +11,7 @@ namespace ROOOOAAGAAA.Combat
         private float Damage;
         private SpriteRenderer spr;
 
-        private void LateUpdate()
+        private void Update()
         {
             if (this.isActiveAndEnabled)
             {
@@ -33,8 +33,6 @@ namespace ROOOOAAGAAA.Combat
         {
             if (collision.CompareTag(enemyTag))
             {
-
-
                 IDamageable _takeDamage = collision.GetComponent<IDamageable>();
 
                 if (_takeDamage is IDamageable)
@@ -58,7 +56,7 @@ namespace ROOOOAAGAAA.Combat
             // Change the color of the GOO to the player it was fired by and also look towards where the player was looking
             spr = GetComponent<SpriteRenderer>();
             SpriteRenderer playerSPR = player.GetComponent<SpriteRenderer>();
-            spr.color = playerSPR.color;
+            spr.color = playerSPR.material.color;
             spr.flipX = playerSPR.flipX;
 
             lifeTime = 0f;

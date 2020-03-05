@@ -1,4 +1,5 @@
 ﻿using ROOOOAAGAAA.Core;
+using System;
 using UnityEngine;
 
 namespace ROOOOAAGAAA.Combat
@@ -7,6 +8,8 @@ namespace ROOOOAAGAAA.Combat
     {
         public float MaxHealth;
 
+        public event Action Damaged;
+
         [SerializeField]
         private float HealthRegenRate;
 
@@ -14,31 +17,23 @@ namespace ROOOOAAGAAA.Combat
         private GameObject DeathEffectPrefab;
 
         [SerializeField]
-        private bool flashRedWhenHit;
-
-        [SerializeField]
         private bool DestroyOnDeath;
 
         private float HealthRegenCD;
         private float _health;
-        private float baseRed;
-        private Renderer _renderer;
+
+        private SpriteRenderer _renderer;
 
         public void TakeDamage(float damage)
         {
             _health -= damage;
 
-            if (flashRedWhenHit)
-            {
-                _renderer.material.color = new Color(baseRed + 1f, _renderer.material.color.g, _renderer.material.color.b);
-            }
+            Damaged?.Invoke();
         }
 
         private void Awake()
         {
             _health = MaxHealth;
-            _renderer = GetComponent<Renderer>();
-            baseRed = _renderer.material.color.r;
         }
 
         private void Update()
@@ -62,17 +57,6 @@ namespace ROOOOAAGAAA.Combat
             {
                 _health = MaxHealth;
             }
-
-            // Flash red
-            if (_renderer.material.color.r > baseRed)
-            {
-                _renderer.material.color = new Color(_renderer.material.color.r - 2f * Time.deltaTime, _renderer.material.color.g, _renderer.material.color.b, _renderer.material.color.a);
-            }
-            else
-            {
-                _renderer.material.color = new Color(baseRed, _renderer.material.color.g, _renderer.material.color.b, _renderer.material.color.a);
-            }
-
         }
 
         public float GetCurrentHealth()

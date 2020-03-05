@@ -18,6 +18,8 @@ GameObject:
   - component: {fileID: 5192167710919505825}
   - component: {fileID: 2492380232547980376}
   - component: {fileID: 6460062629631561779}
+  - component: {fileID: -4633634582910421880}
+  - component: {fileID: -1787374660904480465}
   m_Layer: 0
   m_Name: B1 P1
   m_TagString: Enemy
@@ -177,7 +179,6 @@ MonoBehaviour:
   MaxHealth: 1000
   HealthRegenRate: 2
   DeathEffectPrefab: {fileID: 0}
-  flashRedWhenHit: 1
   DestroyOnDeath: 0
 --- !u!114 &5192167710919505825
 MonoBehaviour:
@@ -228,3 +229,30 @@ MonoBehaviour:
   yOffset: 20
   Range: 15
   DelayToStart: 3
+--- !u!114 &-4633634582910421880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9151991087899813880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81273c82d95c2024dae89fe0a99608d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetTag: Player
+  Damage: 5
+  DelayInSeconds: 0.1
+--- !u!114 &-1787374660904480465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9151991087899813880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 778e23e1944d7c1458ed84217c678ce9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
