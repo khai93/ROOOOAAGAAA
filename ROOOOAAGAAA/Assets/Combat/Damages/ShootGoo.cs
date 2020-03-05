@@ -2,26 +2,33 @@
 
 namespace ROOOOAAGAAA.Combat
 {
-    [RequireComponent(typeof(ControlsManager))]
+    [RequireComponent(typeof(KeyboardKeyBinder))]
     [RequireComponent(typeof(SpriteRenderer))]
     public class ShootGoo : MonoBehaviour
     {
         [SerializeField]
         private Transform FirePoint;
 
+        [SerializeField]
+        private float Damage;
+
+        [SerializeField]
+        private float ShootCooldown;
+
         private SpriteRenderer _spr;
-        private ControlsManager _controlsManager;
+        private KeyboardKeyBinder _keyBinder;
         private float _cd;
 
         private void Awake()
         {
             _spr = GetComponent<SpriteRenderer>();
-            _controlsManager = GetComponent<ControlsManager>();
+            _keyBinder = GetComponent<KeyboardKeyBinder>();
         }
 
         public void TryToShoot()
         {
             var canShootGoo = Time.time >= _cd;
+
             if (canShootGoo)
             {
                 Shoot();
@@ -31,14 +38,14 @@ namespace ROOOOAAGAAA.Combat
         private void Shoot()
         {
             var GooInstance = GooPool.Instance.Get();
-            GooInstance.Init(transform, "Enemy", _controlsManager.Damage);
+            GooInstance.Init(transform, "Enemy", Damage);
 
             // If Player is flipped then flip firepoint position
             Vector3 flippedFirepoint = FirePoint.position - new Vector3(0.59f * 2, 0);
             GooInstance.transform.position = (_spr.flipX ? flippedFirepoint : FirePoint.position);
 
             GooInstance.gameObject.SetActive(true);
-            _cd = Time.time + _controlsManager.ShootCooldown;
+            _cd = Time.time + ShootCooldown;
         }
     }
 }

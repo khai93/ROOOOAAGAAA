@@ -3,36 +3,51 @@
 namespace ROOOOAAGAAA.Combat
 {
     [RequireComponent(typeof(Rigidbody2D))]
-    [RequireComponent(typeof(ControlsManager))]
+    [RequireComponent(typeof(KeyboardKeyBinder))]
     public class PlayerJump : MonoBehaviour
     {
+        [SerializeField]
+        private float JumpForce;
+        [SerializeField]
+        private int MaxJumps;
+
+
+        [SerializeField]
+        private Transform GroundCheck;
+        [SerializeField]
+        private LayerMask GroundLayer;
+
+        public bool IsGrounded;
+
         private Rigidbody2D _rb;
-        private ControlsManager _controlsManager;
+        private KeyboardKeyBinder _keyBinder;
 
         private float _JumpsLeft;
 
         private void Awake()
         {
             _rb = GetComponent<Rigidbody2D>();
-            _controlsManager = GetComponent<ControlsManager>();
-            _JumpsLeft = _controlsManager.MaxJumps;
+            _keyBinder = GetComponent<KeyboardKeyBinder>();
+            _JumpsLeft = MaxJumps;
         }
 
         private void Update()
         {
-            if (_controlsManager.IsGrounded && _JumpsLeft <= 0)
+            IsGrounded = Physics2D.OverlapCircle(GroundCheck.position, 0.15f, GroundLayer);
+
+            if (IsGrounded && _JumpsLeft <= 0)
             {
-                _JumpsLeft = _controlsManager.MaxJumps;
+                _JumpsLeft = MaxJumps;
             }
         }
 
         public void TryToJump()
         {
-            var canJump = _controlsManager.IsGrounded || _JumpsLeft > 0;
+            var canJump = IsGrounded || _JumpsLeft > 0;
 
             if (canJump)
             {
-                _rb.velocity = new Vector2(_rb.velocity.x, _controlsManager.JumpForce);
+                _rb.velocity = new Vector2(_rb.velocity.x, JumpForce);
                 _JumpsLeft--;
             }
         }

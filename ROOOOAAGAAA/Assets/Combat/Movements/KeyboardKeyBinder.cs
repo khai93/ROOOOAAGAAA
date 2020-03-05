@@ -5,7 +5,7 @@ namespace ROOOOAAGAAA.Combat
     [RequireComponent(typeof(ShootGoo))]
     [RequireComponent(typeof(PlayerJump))]
     [RequireComponent(typeof(PlayerMovement))]
-    public class ControlsManager : MonoBehaviour
+    public class KeyboardKeyBinder : MonoBehaviour
     {
         // Keys
         [SerializeField]
@@ -16,34 +16,6 @@ namespace ROOOOAAGAAA.Combat
         private KeyCode JumpKey;
         [SerializeField]
         private KeyCode ShootKey;
-
-        // Serialized Private Config Variables
-        [SerializeField]
-        private float _JumpForce;
-        [SerializeField]
-        private int _MaxJumps;
-        [SerializeField]
-        private float _WalkSpeed;
-        [SerializeField]
-        private float _Damage;
-        [SerializeField]
-        private float _ShootCooldown;
-
-        // Public Configuration Variables
-        public float JumpForce { get { return _JumpForce; } private set { _JumpForce = value; } }
-        public int MaxJumps { get { return _MaxJumps; } private set { _MaxJumps = value; } }
-        public float WalkSpeed { get { return _WalkSpeed; } private set { _WalkSpeed = value; } }
-        public float Damage { get { return _Damage; } private set { _Damage = value; } }
-        public float ShootCooldown { get { return _ShootCooldown; } private set { _ShootCooldown = value; } }
-
-        // Components
-        [SerializeField]
-        private Transform GroundCheck;
-        [SerializeField]
-        private LayerMask GroundLayer;
-
-        // Other
-        public bool IsGrounded;
 
         // Required Behavior Components
         private ShootGoo _shootGoo;
@@ -62,8 +34,6 @@ namespace ROOOOAAGAAA.Combat
             CheckMovementInputs();
             CheckJumpInputs();
             CheckShootGooInputs();
-
-            IsGrounded = Physics2D.OverlapCircle(GroundCheck.position, 0.15f, GroundLayer);
         }
 
         private void CheckJumpInputs()
