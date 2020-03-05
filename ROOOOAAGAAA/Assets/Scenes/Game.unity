@@ -4106,10 +4106,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 255251892}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d8d6bfc30830f649972c5a652b3c4ee, type: 3}
+  m_Script: {fileID: 11500000, guid: fc4d27697a374df4596daecdc7e06084, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  list: []
+  Players: []
 --- !u!1 &387323367
 GameObject:
   m_ObjectHideFlags: 0
@@ -4254,6 +4254,7 @@ GameObject:
   - component: {fileID: 627006658}
   - component: {fileID: 627006659}
   - component: {fileID: 627006660}
+  - component: {fileID: 627006661}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Player
@@ -4406,9 +4407,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddc4ab60b305e0043b5ecd468df2eca0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WalkSpeed: 19
-  leftKey: 276
-  rightKey: 275
 --- !u!114 &627006658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4421,14 +4419,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fa633c680c0e0d4fb7b97fca055cb8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GroundCheck: {fileID: 2009998428}
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 256
-  jumpKey: 273
-  jumpForce: 7
-  maxJumps: 2
-  isGrounded: 0
 --- !u!114 &627006659
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4442,9 +4432,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FirePoint: {fileID: 1589543501}
-  ShootKey: 257
-  Damage: 10
-  cooldown: 0.2
 --- !u!114 &627006660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4462,6 +4449,32 @@ MonoBehaviour:
   DeathEffectPrefab: {fileID: 0}
   flashRedWhenHit: 1
   DestroyOnDeath: 0
+--- !u!114 &627006661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 627006651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3eaff34d32f63a2448c455c3f309a059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LeftKey: 276
+  RightKey: 275
+  JumpKey: 273
+  ShootKey: 257
+  _JumpForce: 8
+  _MaxJumps: 2
+  _WalkSpeed: 14
+  _Damage: 10
+  _ShootCooldown: 0.2
+  GroundCheck: {fileID: 2009998428}
+  GroundLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  IsGrounded: 0
 --- !u!1 &699088332
 GameObject:
   m_ObjectHideFlags: 0
@@ -4868,6 +4881,7 @@ GameObject:
   - component: {fileID: 2145235555}
   - component: {fileID: 2145235556}
   - component: {fileID: 2145235557}
+  - component: {fileID: 2145235558}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Player
@@ -5020,9 +5034,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddc4ab60b305e0043b5ecd468df2eca0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WalkSpeed: 19
-  leftKey: 97
-  rightKey: 100
 --- !u!114 &2145235555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5035,14 +5046,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fa633c680c0e0d4fb7b97fca055cb8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GroundCheck: {fileID: 1850076497}
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 256
-  jumpKey: 119
-  jumpForce: 7
-  maxJumps: 2
-  isGrounded: 0
 --- !u!114 &2145235556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5056,9 +5059,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FirePoint: {fileID: 1460096443}
-  ShootKey: 102
-  Damage: 10
-  cooldown: 0.2
 --- !u!114 &2145235557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5076,3 +5076,29 @@ MonoBehaviour:
   DeathEffectPrefab: {fileID: 0}
   flashRedWhenHit: 1
   DestroyOnDeath: 0
+--- !u!114 &2145235558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2145235548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3eaff34d32f63a2448c455c3f309a059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LeftKey: 97
+  RightKey: 100
+  JumpKey: 119
+  ShootKey: 102
+  _JumpForce: 8
+  _MaxJumps: 2
+  _WalkSpeed: 14
+  _Damage: 10
+  _ShootCooldown: 0.2
+  GroundCheck: {fileID: 1850076497}
+  GroundLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  IsGrounded: 0
