@@ -19,6 +19,8 @@ GameObject:
   - component: {fileID: 1062655178640136081}
   - component: {fileID: 4024327521924074620}
   - component: {fileID: 4204782586084561437}
+  - component: {fileID: -2262204594276611726}
+  - component: {fileID: -6439665974532215245}
   m_Layer: 0
   m_Name: B1 P2
   m_TagString: Enemy
@@ -195,7 +197,6 @@ MonoBehaviour:
   MaxHealth: 250
   HealthRegenRate: 5
   DeathEffectPrefab: {fileID: 0}
-  flashRedWhenHit: 1
   DestroyOnDeath: 0
 --- !u!114 &1062655178640136081
 MonoBehaviour:
@@ -242,5 +243,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effectPrefab: {fileID: 0}
-  Damage: 10
+  Damage: 20
   DestroyOnTouch: 0
+--- !u!114 &-2262204594276611726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7894436261087316456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21d304b9d1da4c24eac415e0b2d2da38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Trigger: Attack1
+  TriggerRate: 18
+  DelayToStart: 6
+--- !u!114 &-6439665974532215245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7894436261087316456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 778e23e1944d7c1458ed84217c678ce9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
